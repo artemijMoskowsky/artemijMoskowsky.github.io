@@ -35,7 +35,6 @@ const codes = {
     'lettherebelight': 'Увімкнути електрощиток',
     'killmesaidspy': 'Самогубство',
     'aihasfixed': 'Не палить тебе',
-    'freedom': 'Усі ачивки'
 };
 
 function checkCode(hero,enemies,light,listElem, dealerList) {
@@ -583,109 +582,6 @@ function cheatEffect(code,hero,enemies,light,listElem, dealerList) {
                     }, 5000);
                 }
                 break;
-        case 'freedom':
-                //Ефект
-                if (!window.localStorage.getItem(`${hero.NAME}`).includes('cheater')){
-                    window.localStorage.setItem(`${hero.NAME}`,`${hero.CONTENT}; cheater`)
-                    hero.CONTENT = window.localStorage.getItem(hero.NAME)
-                    achievmentsMove('/images/achievements/cheater.png', 'Брудний читер','Хочеш поганих часів?')
-                    hero.heroAchievements.play()
-                }
-                if (!window.localStorage.getItem(`${hero.NAME}`).includes('learningIsLight')){
-                    window.localStorage.setItem(`${hero.NAME}`,`${hero.CONTENT}; learningIsLight`)
-                    hero.CONTENT = window.localStorage.getItem(hero.NAME)
-                    achievmentsMove('/images/achievements/learningIsLight.png', 'Знання це світло', 'Зайти в туторіал')
-                    hero.heroAchievements.play()
-                }
-                if (!window.localStorage.getItem(`${hero.NAME}`).includes('killer')){
-                    if (!alreadyActivated) {
-                        window.localStorage.setItem(`${hero.NAME}`,`${hero.CONTENT}; killer`)
-                        hero.CONTENT = window.localStorage.getItem(hero.NAME)
-                        achievmentsMove('/images/achievements/killer.png', 'Вбивця!','Вбити свого першого ворога')
-                        hero.heroAchievements.play()
-                    }
-                }
-                if (!window.localStorage.getItem(`${hero.NAME}`).includes('explosion')){
-                    if (!alreadyActivated) {
-                        window.localStorage.setItem(`${hero.NAME}`,`${hero.CONTENT}; explosion`)
-                        hero.CONTENT = window.localStorage.getItem(hero.NAME)
-                        achievmentsMove('../images/achievements/explosion.png','Я в порядку, сір',"Вижити після вибуху (обов'язково отримати шкоду від вибуху та вижити)")
-                        hero.heroAchievements.play()
-                    }
-                }
-                if (!window.localStorage.getItem(`${hero.NAME}`).includes('empty')){
-                    if (!alreadyActivated) {
-                        window.localStorage.setItem(`${hero.NAME}`,`${hero.CONTENT}; empty`)
-                        hero.CONTENT = window.localStorage.getItem(hero.NAME)
-                        achievmentsMove('../images/achievements/EmptyBox.png','А де?',"У коробці нічого немає")
-                        hero.heroAchievements.play()
-                    }
-                }
-                if (!window.localStorage.getItem(`${hero.NAME}`).includes('math')){
-                    if (!hero.alreadyActivated) {
-                        window.localStorage.setItem(`${hero.NAME}`,`${hero.CONTENT}; math`)
-                        hero.CONTENT = window.localStorage.getItem(hero.NAME)
-                        achievmentsMove('../images/achievements/hacker.png','Хакер','Дайте правильну відповідь десятичним дробом')
-                        hero.heroAchievements.play()
-                    }
-                }
-                if (!window.localStorage.getItem(`${hero.NAME}`).includes('fallToDie')){
-                    if (!alreadyActivated) {
-                        window.localStorage.setItem(`${hero.NAME}`,`${hero.CONTENT}; fallToDie`)
-                        hero.CONTENT = window.localStorage.getItem(hero.NAME)
-                        achievmentsMove('/images/achievements/fall.png', 'Джеронімоооо!','Впасти й розбитись')
-                        hero.heroAchievements.play()
-                    }
-                }
-                if (!window.localStorage.getItem(`${hero.NAME}`).includes('badMath')){
-                    if (!alreadyActivated) {
-                        window.localStorage.setItem(`${hero.NAME}`,`${hero.CONTENT}; badMath`)
-                        hero.CONTENT = window.localStorage.getItem(hero.NAME)
-                        achievmentsMove('../images/achievements/badMath.png','Поганий математик','Дайте відповідь 3 на запитанні 2 + 2')
-                        hero.heroAchievements.play()
-                    }
-                }
-                if (!window.localStorage.getItem(`${hero.NAME}`).includes('theEnd')){
-                    if (!alreadyActivated) {
-                        window.localStorage.setItem(`${hero.NAME}`,`${hero.CONTENT}; theEnd`)
-                        hero.CONTENT = window.localStorage.getItem(hero.NAME)
-                        achievmentsMove('../images/achievements/theEnd.png','Зе Енд','Пройдіть гру')
-                        hero.heroAchievements.play()
-                    }
-                }
-                //Повідомлення
-                if (alreadyActivated == false) {
-                    alreadyActivated = true
-                    var cheatActivatedAchi = document.createElement('p');
-                    cheatActivatedAchi.textContent = 'When cheats are activated, achievements will be disabled';
-                    cheatActivatedAchi.classList.add('cheatActivated')
-                    document.querySelector('.gameWorking').append(cheatActivatedAchi);
-                    setTimeout(() => {
-                        cheatActivatedAchi.remove()
-                        var cheatActivated = document.createElement('p');
-                        cheatActivated.textContent = 'Cheat Activated';
-                        cheatActivated.classList.add('cheatActivated')
-                        document.querySelector('.gameWorking').append(cheatActivated);
-                        var notification = new Audio('/sounds/cheat.mp3')
-                        notification.volume = 1
-                        notification.play()
-                        setTimeout(() => {
-                            cheatActivated.remove()
-                        }, 5000);
-                    }, 3000);
-                } else {
-                    var cheatActivated = document.createElement('p');
-                    cheatActivated.textContent = 'Cheat Activated';
-                    cheatActivated.classList.add('cheatActivated')
-                    document.querySelector('.gameWorking').append(cheatActivated);
-                    var notification = new Audio('/sounds/cheat.mp3')
-                    notification.volume = 1
-                    notification.play()
-                    setTimeout(() => {
-                        cheatActivated.remove()
-                    }, 5000);
-                }
-                break;
         }
 
 }
@@ -788,7 +684,7 @@ function mainMenu(){
                     let gameDiv = document.createElement('div');
                     menu.pause()
                     gameDiv.classList.add('gameWorking');
-                    room = 11
+                    room = 1
                     game(gameDiv, bullets, false)
                     newsDiv.remove()
                 })
@@ -798,7 +694,7 @@ function mainMenu(){
                 let gameDiv = document.createElement('div');
                 menu.pause()
                 gameDiv.classList.add('gameWorking');
-                room = 11
+                room = 1
                 game(gameDiv, bullets, false)
             }
             
@@ -1983,7 +1879,10 @@ function game(gameDiv, bullets, inTutorial){
                                     hero.heroAchievements.play()
                                 }
                             }
-
+							heroHealth = 30
+							coins = 0
+							heroCoins = 0
+							boosts = []
                             document.querySelector('.gameWorking').remove()
                             document.querySelector('.gameDivTop').remove()
                             for(let interval of [heroAnimation, enemyLoop, heroJump]){

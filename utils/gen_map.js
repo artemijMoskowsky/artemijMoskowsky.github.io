@@ -150,7 +150,7 @@ function gen_map(listElement,coins,boosts,room, inTutorial,account) {
                     enemyList.push(enemy)
                 }
             } else if (row == '8'){
-                let enemy = new Enemy(x,y-150, 250, 250, "/images/enemy/CB1/cb1_", undefined, 'img', 15*(room/2),false, 35*(room/2), 2, false, 600)
+                let enemy = new Enemy(x,y-150, 250, 250, "/images/enemy/CB1/cb1_", undefined, 'img', 15*(room/2),false, 35*(room/2), 2, false, 800)
                 enemyList.push(enemy)
             
             } else if (row == 'f') {
