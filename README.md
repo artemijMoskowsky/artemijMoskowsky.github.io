@@ -1,4 +1,5 @@
 # JAVASCRIPT WORLD IT GAME TEAM №4
+![Game Character](https://github.com/artemijMoskowsky/JavaScriptGameTeam4/blob/main/images/hero/stay/stay1.png?raw=true)
 ## Game Name: NEVER IMPROVE A.I.
 ### Team Members
 - Artem Moskowsky > Team Leader
