@@ -1442,7 +1442,7 @@ function transitionRooms(){
         let bullets = new Array()
         let gameDiv = document.createElement('div')
         gameDiv.classList.add('gameWorking');
-        game(gameDiv, bullets, inTutorial)
+        game(gameDiv, bullets, false)
     })
 }
 
@@ -1702,6 +1702,7 @@ function game(gameDiv, bullets, inTutorial){
 
     // Створюємо матрицю гри
     if (inTutorial == false) {
+        console.log(room)
         var map = getStructures(room)
         var [hero, listElem, enemyList, dealerList] = gen_map(map,coins,boosts,room,false,account)
         var decList = createDecoration()
@@ -1856,6 +1857,7 @@ function game(gameDiv, bullets, inTutorial){
                     if (document.querySelector('.cross') == null){
                         if (room < 11) {
                             room += 1
+                            console.log(room)
                             heroHealth = hero.health
                             heroCoins = hero.coins
                             hero.InPortal = false
@@ -2032,16 +2034,16 @@ document.addEventListener('contextmenu',function(event){
     },3000)
 })
 
-document.addEventListener('keydown', function(event) {
-    console.log(event);
-    if (event.key === "F12") {
-        event.preventDefault();
-        let textError = document.createElement('h1')
-        textError.textContent = 'DO NOT TRY TO FIND SOMETHING THERE!'
-        textError.classList.add('textError')
-        document.body.append(textError)
-        setTimeout(()=>{
-            textError.remove()
-        },3000)
-    }
-  });
+//document.addEventListener('keydown', function(event) {
+//    console.log(event);
+//    if (event.key === "F12") {
+//        event.preventDefault();
+//        let textError = document.createElement('h1')
+//        textError.textContent = 'DO NOT TRY TO FIND SOMETHING THERE!'
+//        textError.classList.add('textError')
+//        document.body.append(textError)
+//        setTimeout(()=>{
+//            textError.remove()
+//        },3000)
+//    }
+//  });
