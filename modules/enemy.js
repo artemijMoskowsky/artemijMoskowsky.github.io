@@ -601,10 +601,11 @@ class Enemy extends Sprite{
                             this.ELEMENT.style.bottom = `${this.Y+this.HEIGHT}px`
                             this.RECT.RECT = this.RECT.getRect(this.ELEMENT)
                         }
-                    } else {
-                        this.random = undefined
-                    }
-                case ('Lawyer'):
+                        } else {
+                            this.random = undefined
+                        }
+                    break
+                case 'Lawyer':
                     if (this.attackSpeed != 0){
                         this.attackSpeed--    
                     }else{                     
@@ -736,6 +737,7 @@ class Enemy extends Sprite{
                             }
                         }
                     }
+                    break
                     //console.log(this.inertY)
                     //if (this.random <= 4 && hero.X+hero.WIDTH > (this.X-150) && hero.X < (this.X+this.WIDTH+150) && this.melleeAttack == undefined){
                     //    this.melleeAttack = true
